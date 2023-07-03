@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ventes</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Liste des tâches</h1>
+    <ul>
+        <% ventes.forEach(function(vente, index) { %>
+            <li> <%= vente %> </li> 
+        <% }); %>
+    </ul>
+    <form action="/ventes/ajouter/" method="post">
+        <p>
+            <label for="newvente">Poids</label>
+            <input type="number" name="poids" id="poids" autofocus />
+            <select name="typeVente" id="typeVente">
+                <% animaux.forEach(function(animal, index) { %>
+                    <option value="<% animal.codeAnimal %>"> <% animal.codeAnimal %> </option>
+                <% });%>  
+                <% legumes.forEach(function(legume, index) { %>
+                    <option value="<% legume.codeLegume %>"> <% legume.codeLegume %> </option>
+                <% });%>
+                <% fruits.forEach(function(fruit, index) { %>
+                    <option value="<% fruit.codeFruit %>"> <% fruit.codeFruit %> </option>
+                <% });%> 
+            </select>
+            <input type="submit" />
+        </p>
+    </form>
+</body>
+
+</html>
